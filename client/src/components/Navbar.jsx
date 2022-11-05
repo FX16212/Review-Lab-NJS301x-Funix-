@@ -11,6 +11,12 @@ const Navbar = () => {
 					<div className="main-header__item">
 						<Link to="/add-product">Add Product</Link>
 					</div>
+					<div className="main-header__item">
+						<Link to="/cart">Cart</Link>
+					</div>
+					<div className="main-header__item">
+						<Link to="/orders">Orders</Link>
+					</div>
 				</div>
 			</nav>
 		</header>

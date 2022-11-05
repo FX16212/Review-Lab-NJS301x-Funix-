@@ -1,8 +1,1 @@
-[
-	{
-		"title": "A Book",
-		"imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
-		"description": "This is an awesome book!",
-		"price": "19"
-	}
-]
+[{"id":"123245","title":"A Book","imageUrl":"https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg","description":"This is an awesome book!","price":"19"},{"id":"0.41607315815753076","title":"fasfd","imageUrl":"fdasfs","description":"fadsfads","price":"12"},{"id":"0.7023876742878004","title":"Book 3","imageUrl":"asas","description":"asa","price":"25"},{"id":"0.28472748662491143","title":"Book 4","imageUrl":"3asas","description":"sasds","price":"21"},{"id":"0.9198821101255445","title":"Book 4","imageUrl":"3asas","description":"sasds","price":"21"}]
