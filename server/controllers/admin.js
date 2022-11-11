@@ -18,8 +18,47 @@ const getProducts = (req, res) => {
 	res.json(products);
 };
 
+const getEditProduct = (req, res, next) => {
+	const editMode = req.query.edit;
+
+	if (!editMode) {
+		return res.status(404).json({ msg: 'Not Edit Mode' });
+	}
+	const prodId = req.params.productId;
+	const product = products.findByID(prodId);
+
+	res.json({
+		editing: editMode,
+		product: product,
+	});
+};
+
+const postEditProduct = (req, res, next) => {
+	const prodId = req.body.productId;
+	const updatedTitle = req.body.title;
+	const updatedPrice = req.body.price;
+	const updatedImageUrl = req.body.imageUrl;
+	const updatedDesc = req.body.description;
+	const updatedProduct = new Product(
+		prodId,
+		updatedTitle,
+		updatedImageUrl,
+		updatedDesc,
+		updatedPrice
+	);
+	updatedProduct.save();
+};
+const postDeleteProduct = (req, res, next) => {
+	const prodId = req.body.productId;
+	Product.deleteById(prodId);
+	res.redirect('/admin/products');
+};
+
 export default {
 	getAddProduct,
 	postAddProduct,
 	getProducts,
+	getEditProduct,
+	postEditProduct,
+	postDeleteProduct,
 };
