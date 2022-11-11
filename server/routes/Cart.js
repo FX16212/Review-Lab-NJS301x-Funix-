@@ -9,4 +9,10 @@ router.get('/', cartController.getCart);
 
 router.post('/add-to-cart', jsonParser, cartController.postCart);
 
+router.post(
+	'/cart-delete-item',
+	jsonParser,
+	cartController.postCartDeleteProduct
+);
+
 export default router;

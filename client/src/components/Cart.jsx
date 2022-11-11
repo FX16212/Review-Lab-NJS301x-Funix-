@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const Cart = () => {
 	const url = 'http://localhost:8080/api/cart';
+	const url2 = 'http://localhost:8080/api/cart/cart-delete-item';
 	const [cart, setCart] = useState([]);
 
 	useEffect(() => {
@@ -12,6 +13,12 @@ const Cart = () => {
 		};
 		fetchApi();
 	}, []);
+
+	const handleDelete = (id) => {
+		axios
+			.post(url2, { productId: id })
+			.then((res) => setCart(res.data.products));
+	};
 
 	return (
 		<main>
@@ -23,7 +30,16 @@ const Cart = () => {
 								<p>
 									{item.productData.title} - {item.qty}
 								</p>
-								<button className="btn" type="submit">
+								<button
+									className="btn"
+									type="submit"
+									style={{ margin: '10px' }}>
+									Edit
+								</button>
+								<button
+									className="btn"
+									type="submit"
+									onClick={() => handleDelete(item.productData.id)}>
 									Delete
 								</button>
 							</li>

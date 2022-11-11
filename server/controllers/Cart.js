@@ -31,7 +31,18 @@ const postCart = (req, res) => {
 	}
 };
 
+const postCartDeleteProduct = (req, res) => {
+	const prodId = req.body.productId;
+	const product = Products.findByID(prodId);
+
+	if (prodId) {
+		const productPrice = product.price;
+		Cart.deleteProduct(prodId, productPrice);
+	}
+};
+
 export default {
 	getCart,
 	postCart,
+	postCartDeleteProduct,
 };
